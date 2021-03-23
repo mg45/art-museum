@@ -2,35 +2,14 @@ const Post = (props) => {
     console.log(props)
     return (
         <div>
-            <header>
-                <h1>Harvard/<br />Art Museum</h1>
-            </header>
             <main>
-                <section>
-                    <img src="" />
-                    <div>
-                        <h1></h1>
-                        <p></p>
-                    </div>
-                </section>
-                <section>
-                    <div>
-                        <h3></h3>
-                        <p></p>
-                        <br />
-
-                        <h3></h3>
-                        <p></p>
-                        <br />
-
-                        <h3></h3>
-                        <p></p>
-                        <br />
-
-                        <h3></h3>
-                        <p></p>
-                    </div>
-
+                <article>
+                    <figure>
+                        <img src="" alt="" />
+                        <figcaption></figcaption>
+                    </figure>
+                </article>
+                <article>
                     <div>
                         <h3></h3>
                         <p></p>
@@ -38,8 +17,25 @@ const Post = (props) => {
 
                         <h3></h3>
                         <p></p>
+                        <br />
+
+                        <h3></h3>
+                        <p></p>
+                        <br />
+
+                        <h3></h3>
+                        <p></p>
                     </div>
-                </section>
+
+                    <div>
+                        <h3></h3>
+                        <p></p>
+                        <br />
+
+                        <h3></h3>
+                        <p></p>
+                    </div>
+                </article>
             </main>
         </div>
     );
