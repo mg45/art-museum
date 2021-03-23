@@ -1,4 +1,4 @@
-import PostList from './components/PostList';
+import PostList from './components/PostList/PostList';
 import logo from './logo.svg';
 import './App.css';
 
