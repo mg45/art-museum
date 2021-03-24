@@ -2,56 +2,66 @@ import React, {Component} from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 import Post from '../Post/Post';
-import PostDetail from '../PostDetail/PostDetail';
 import './PostList.css';
 
 class PostList extends Component {
     state = {
         posts: [],
-        selectedPostId: null
+        selectedPostId: null,
+        category: 'Paintings'
+        
     }
 
     //classification= Paintings
     componentDidMount () {
-        console.log(this.props)
-        axios.get('https://api.harvardartmuseums.org/object?classification=Paintings&apikey=1da9b44f-392a-4d5f-8782-ff00202ed72a&page=3&size=10')
+        axios.get(`https://api.harvardartmuseums.org/object?classification=${this.state.category}&apikey=1da9b44f-392a-4d5f-8782-ff00202ed72a&page=3&size=10`)
         .then(response => {
+            console.log(response)
             this.setState({posts: response.data.records});
-            console.log(response.data.records);
         })
     }
 
     postSelectedHandler = (id) => {
+        console.log(id)
         this.setState({selectedPostId: id});
+    }
+
+    
+    postCategoryHandler = (event) => {
+        //console.log(event.target.value)
+        axios.get(`https://api.harvardartmuseums.org/object?classification=${event.target.value}&apikey=1da9b44f-392a-4d5f-8782-ff00202ed72a&page=3&size=10`)
+        .then(response => {
+            console.log(response)
+
+            this.setState({posts: response.data.records, category: event.target.value} );
+        })
     }
 
     render() {
         const posts = this.state.posts.map(post => {
             //console.log(post);
             //return [post.classification, post.id]
-            return (<Link to={'/' + post.id} key={post.id}>
-                        <Post
-                            //author={post.people[0].name}
-                            url={post.primaryimageurl}
-                            clicked={() => this.postSelectedHandler(post.id)} />
-                    </Link>);
+            return (
+               <>
+                {post.primaryimageurl !==null ? <Link to={'/' + post.id} key={post.id}><Post url={post.primaryimageurl} clicked={() => this.postSelectedHandler(post.id)}/></Link> : null }    
+                </>
+            );
         })
 
-        console.log(posts)
         return (
             <>
-                <header class="header-container">
+                <header className="header-container">
 
-                    <div class="art-search">
-                        <input type="search" value="" placeholder="Search" />
-                        <button type="submit" onClick="">Search</button>
+                    <div className="art-search">
+                        <input type="search"placeholder="Search" />
+                        <button type="submit">Search</button>
                     </div>
 
-                    <select class="art-options" >
-                        <option value="Show all">Show all</option>
-                        <option value="Paitings">Paitings</option>
-                        <option value="Prints">Prints</option>
-                        <option value="Drawings">Drawings</option>
+                    <select value={this.state.value} onChange={this.postCategoryHandler} className="art-options" >
+                        <option value="showall">showall</option>
+                        <option value="Paintings">Paintings</option>
+                        <option value="Jewelry">Jewelry</option>
+                        <option value="Sculpture">Sculpture</option>
                     </select>
 
                     <nav>

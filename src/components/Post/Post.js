@@ -7,7 +7,8 @@ const Post = (props) => (
         <img src={props.url} alt="" />
         <h1>{props.title}</h1>
         <p>{props.artName}</p>
-        <h1>{props.author}</h1>
+        <p>{props.author}</p>
+        <p>{props.id}</p>
         <button onClick={props.clicked}>show more</button>
     </article>
 );
