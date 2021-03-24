@@ -1,0 +1,10 @@
+p,
+div p {
+  color: white;
+  position: fixed;
+  bottom: 25px;
+  padding: 10px;
+  background: rgba(0, 0, 0, 0.5);
+  left: 50%;
+  transform: translateX(-50%);
+}
