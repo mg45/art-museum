@@ -8,10 +8,11 @@ class PostDetail extends Component {
         loadedPost: null
     }
 
-    componentDidUpdate () {
-        if ( this.props.id ) {
+    componentDidMount () {
+        console.log(this.props)
+        if ( this.props.match.params.id ) {
             if ( !this.state.loadedPost || (this.state.loadedPost && this.state.loadedPost.id !== this.props.id) ) {
-                axios.get( `https://api.harvardartmuseums.org/object/${this.props.id}?apikey=1da9b44f-392a-4d5f-8782-ff00202ed72a`)
+                axios.get( `https://api.harvardartmuseums.org/object/${this.props.match.params.id}?apikey=1da9b44f-392a-4d5f-8782-ff00202ed72a`)
                     .then( response => {
                         console.log(response);
                         this.setState( { loadedPost: response.data } );
@@ -27,8 +28,8 @@ class PostDetail extends Component {
         }
         if ( this.state.loadedPost ) {
             post = (
-                <div style={{backgroundColor: 'green'}}>
-                    <h1>{this.state.loadedPost.people[0].displayname}</h1>
+                <div>
+                    <img src={this.state.loadedPost.primaryimageurl} alt=""/>
                     <p>{this.state.loadedPost.culture}</p>
                 </div>
             );
