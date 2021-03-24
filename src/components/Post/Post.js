@@ -2,9 +2,10 @@ import React from 'react';
 import './Post.css';
 
 const Post = (props) => (
-    <article className="Post" onClick={props.clicked}>
+    <article>
         <h1>{props.author}</h1>
         <img src={props.url} alt=""/>
+        <button onClick={props.clicked}>show more</button>
     </article>
 );
  
