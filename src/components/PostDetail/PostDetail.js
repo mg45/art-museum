@@ -1,4 +1,4 @@
-const Post = (props) => {
+const PostDetail = (props) => {
     console.log(props)
     return (
         <div>
@@ -41,4 +41,4 @@ const Post = (props) => {
     );
 }
 
-export default Post;
+export default PostDetail;
