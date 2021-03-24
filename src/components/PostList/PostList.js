@@ -46,7 +46,6 @@ class PostList extends Component {
                 <main>
                     <section className='post-list-container'>
                         {posts}
-                        <PostDetail id={this.state.selectedPostId} />
                     </section>
                 </main>
             </>
