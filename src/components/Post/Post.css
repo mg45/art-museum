@@ -1,3 +1,49 @@
-img {
-    max-width: 400px;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+article {
+  padding: 5%;
+  width: 50%;
+  position: relative;
+}
+
+article:nth-of-type(even) {
+  margin-top: 7%;
+}
+
+article img {
+  width: 500px;
+  max-height: 50vh;
+}
+
+article div {
+  position: absolute;
+  right: 0;
+  top: 100px;
+  color: white;
+  background: rgba(0, 0, 0, 0.5);
+  padding: 15px;
+  transition: 0.5s;
+}
+
+article div:hover {
+  background: black;
+  transition: 0.5s;
+}
+
+article div button {
+  all: unset;
+  cursor: pointer;
+  border: solid 2px white;
+  padding: 10px;
+  transition: 0.5s;
+}
+
+article div button:hover {
+  color: black;
+  background: white;
+  transition: 0.5s;
 }
