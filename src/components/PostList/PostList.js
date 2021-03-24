@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, {Component} from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 import Post from '../Post/Post';
@@ -12,17 +12,17 @@ class PostList extends Component {
     }
 
     //classification= Paintings
-    componentDidMount() {
+    componentDidMount () {
         console.log(this.props)
         axios.get('https://api.harvardartmuseums.org/object?classification=Paintings&apikey=1da9b44f-392a-4d5f-8782-ff00202ed72a&page=3&size=10')
-            .then(response => {
-                this.setState({ posts: response.data.records });
-                console.log(response.data.records);
-            })
+        .then(response => {
+            this.setState({posts: response.data.records});
+            console.log(response.data.records);
+        })
     }
 
     postSelectedHandler = (id) => {
-        this.setState({ selectedPostId: id });
+        this.setState({selectedPostId: id});
     }
 
     render() {
@@ -30,13 +30,14 @@ class PostList extends Component {
             //console.log(post);
             //return [post.classification, post.id]
             return (<Link to={'/' + post.id} key={post.id}>
-                <Post
-                    //author={post.people[0].name}
-                    url={post.primaryimageurl}
-                    clicked={() => this.postSelectedHandler(post.id)} />
-            </Link>);
+                        <Post
+                            //author={post.people[0].name}
+                            url={post.primaryimageurl}
+                            clicked={() => this.postSelectedHandler(post.id)} />
+                    </Link>);
         })
 
+        console.log(posts)
         return (
             <>
                 <header>
@@ -55,5 +56,5 @@ class PostList extends Component {
         );
     }
 }
-
+ 
 export default PostList;
