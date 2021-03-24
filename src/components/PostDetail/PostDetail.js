@@ -1,3 +1,5 @@
+import React from 'react';
+import './PostDetail.js';
 const PostDetail = (props) => {
     console.log(props)
     return (
@@ -6,33 +8,36 @@ const PostDetail = (props) => {
                 <article>
                     <figure>
                         <img src="" alt="" />
-                        <figcaption></figcaption>
+                        <figcaption>
+                            <h1></h1>
+                            <p></p>
+                        </figcaption>
                     </figure>
                 </article>
                 <article>
                     <div>
-                        <h3></h3>
+                        <h3>People</h3>
                         <p></p>
                         <br />
 
-                        <h3></h3>
+                        <h3>Classification</h3>
                         <p></p>
                         <br />
 
-                        <h3></h3>
+                        <h3>Date</h3>
                         <p></p>
                         <br />
 
-                        <h3></h3>
+                        <h3>Culture</h3>
                         <p></p>
                     </div>
 
                     <div>
-                        <h3></h3>
+                        <h3>Medium</h3>
                         <p></p>
                         <br />
 
-                        <h3></h3>
+                        <h3>Dimensions</h3>
                         <p></p>
                     </div>
                 </article>
