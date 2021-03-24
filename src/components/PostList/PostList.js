@@ -40,8 +40,22 @@ class PostList extends Component {
         console.log(posts)
         return (
             <>
-                <header>
+                <header class="header-container">
+
+                    <div class="art-search">
+                        <input type="search" value="" placeholder="Search" />
+                        <button type="submit" onClick="">Search</button>
+                    </div>
+
+                    <select class="art-options" >
+                        <option value="Show all">Show all</option>
+                        <option value="Paitings">Paitings</option>
+                        <option value="Prints">Prints</option>
+                        <option value="Drawings">Drawings</option>
+                    </select>
+
                     <nav>
+
                         <ul>
                             <li><a href="/">Home</a></li>
                         </ul>
