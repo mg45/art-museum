@@ -35,11 +35,21 @@ class PostList extends Component {
         })
 
         return (
-            <section className='post-list-container'>
-                {posts}
-                <PostDetail id={this.state.selectedPostId} />
-            </section>
-
+            <>
+                <header>
+                    <nav>
+                        <ul>
+                            <li><a href="/">Home</a></li>
+                        </ul>
+                    </nav>
+                </header>
+                <main>
+                    <section className='post-list-container'>
+                        {posts}
+                        <PostDetail id={this.state.selectedPostId} />
+                    </section>
+                </main>
+            </>
         );
     }
 }
