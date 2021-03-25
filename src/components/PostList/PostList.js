@@ -36,6 +36,10 @@ class PostList extends Component {
         })
     }
 
+    onInputChange(event) {
+        console.log(event.target.value);
+    }
+
     render() {
         const posts = this.state.posts.map(post => {
             //console.log(post);
@@ -61,7 +65,7 @@ class PostList extends Component {
                 <header className="header-container">
 
                     <div className="art-search">
-                        <input type="search"placeholder="Search" />
+                        <input type="text" placeholder="search..." onChange={this.onInputChange}/>
                         <button type="submit">Search</button>
                     </div>
 
