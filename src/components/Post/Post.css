@@ -1,4 +1,4 @@
-.art-container {
+.post-list-container .art-container {
   width: 600px;
   max-height: 600px;
   margin: 100px 50px;
@@ -11,6 +11,30 @@
   height: 400px;
 }
 
+.post-list-container-vertical .art-container {
+  width: 400px;
+  max-height: 400px;
+  margin: 50px 50px;
+  position: relative;
+  border: 2px solid black;
+}
+
+.post-list-container-vertical .art-container img {
+  height: 300px;
+}
+
+.post-list-container-vertical .info-box {
+  display: inline-block;
+  background: rgba(255, 255, 255, 1);
+  padding: 15px;
+  border: 2px solid black;
+  width: 650px;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: -50px;
+}
+
 .info-box {
   display: inline-block;
   background: rgba(255, 255, 255, 0.8);
@@ -21,10 +45,6 @@
   left: 50%;
   transform: translateX(-50%);
   bottom: -50px;
-}
-
-.info-box-vertical {
-  position: relative;
 }
 
 .info-box div {
