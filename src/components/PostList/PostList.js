@@ -8,7 +8,7 @@ class PostList extends Component {
     state = {
         posts: [],
         selectedPostId: null,
-        category: 'Paintings'
+        category: 'Paintings&Prints&Drawings'
         
     }
 
