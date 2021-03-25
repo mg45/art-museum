@@ -6,13 +6,25 @@
   box-sizing: border-box;
 }
 
+body {
+  position: relative;
+}
+
 header {
+  background: white;
   display: flex;
+  justify-content: center;
   position: fixed;
-  top: 10px;
-  left: 50%;
-  transform: translateX(-50%);
-  height: 50px;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 100px;
+  z-index: 101;
+  padding: 25px;
+}
+
+.header-elements {
+  display: flex;
 }
 
 header nav {
@@ -70,4 +82,67 @@ header nav {
   align-items: center;
   width: 100%;
   overflow-y: hidden;
+}
+
+.post-list-container-vertical {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 120px;
+}
+
+/* The switch - the box around the slider */
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+}
+
+/* Hide default HTML checkbox */
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+/* The slider */
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 5px;
+  right: 0;
+  bottom: 0;
+  background-color: black;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+  height: 50px;
+  width: 70px;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 25px;
+  width: 25px;
+  left: 4px;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: white;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+
+input:checked + .slider {
+  background-color: black;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px black;
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateY(-50%) translateX(35px);
 }

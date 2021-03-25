@@ -1,7 +1,7 @@
 .art-container {
   width: 600px;
   max-height: 600px;
-  margin: 0 50px;
+  margin: 100px 50px;
   padding: 0 50px;
   position: relative;
 }
@@ -21,7 +21,10 @@
   left: 50%;
   transform: translateX(-50%);
   bottom: -50px;
-  z-index: 100;
+}
+
+.info-box-vertical {
+  position: relative;
 }
 
 .info-box div {

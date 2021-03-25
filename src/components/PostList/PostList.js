@@ -9,7 +9,8 @@ class PostList extends Component {
         posts: [],
         selectedPostId: null,
         category: 'Mosaics&Text&Prints&Paintings&Drawings',
-        entry: ''
+        entry: '',
+        isViewVertical: false
     }
 
     //classification= Paintings
@@ -52,6 +53,7 @@ class PostList extends Component {
     }
 
     render() {
+        // console.log(this.state.isViewVertical)
         const posts = this.state.posts.map(post => {
             //console.log(post);
             //return [post.classification, post.id]
@@ -74,22 +76,27 @@ class PostList extends Component {
         return (
             <>
                 <header className="header-container">
-
-                    <div className="art-search">
-                        <form onSubmit={this.onFormSubmit}>
-                            <input type="text" placeholder="Search for Title" onChange={(event) => this.setState({ entry: event.target.value })}
+                    <div className="header-elements">
+                        <div className="art-search">
+                            <form onSubmit={this.onFormSubmit}>
+                                <input type="text" placeholder="Search for Title" onChange={(event) => this.setState({ entry: event.target.value })}
                                 value={this.state.entry}
-                            />
-                            <button type="submit">➝</button>
-                        </form>
-                    </div>
+                                />
+                                <button type="submit">➝</button>
+                            </form>
+                        </div>
 
-                    <select value={this.state.value} onChange={this.postCategoryHandler} className="art-options" >
-                        <option value="Mosaics&Paintings&Prints&Drawings">Show all</option>
-                        <option value="Prints">Prints</option>
-                        <option value="Paintings">Paintings</option>
-                        <option value="Drawings">Drawings</option>
-                    </select>
+                        <select value={this.state.value} onChange={this.postCategoryHandler} className="art-options" >
+                            <option value="Mosaics&Paintings&Prints&Drawings">Show all</option>
+                            <option value="Prints">Prints</option>
+                            <option value="Paintings">Paintings</option>
+                            <option value="Drawings">Drawings</option>
+                        </select>
+                        <label class="switch">
+                            <input type="checkbox" onClick={ () => this.setState({isViewVertical: !this.state.isViewVertical}) } />
+                            <span class="slider"></span>
+                        </label>
+                    </div>
 
                     <nav>
 
@@ -99,7 +106,7 @@ class PostList extends Component {
                     </nav>
                 </header>
                 <main>
-                    <section className='post-list-container'>
+                    <section className={ this.state.isViewVertical ? 'post-list-container-vertical' : 'post-list-container'} >
                         {posts}
                     </section>
                 </main>
