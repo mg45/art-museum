@@ -40,8 +40,9 @@ class PostList extends Component {
         console.log(event.target.value);
     }
 
-    onFormSubmit(event) {
+    onFormSubmit = (event) => {
         event.preventDefault()
+        console.log(this.state.entry);
     }
 
     render() {
