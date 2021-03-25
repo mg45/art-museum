@@ -6,7 +6,7 @@ const Post = (props) => (
     <article>
         <img src={props.url} alt="" />
         <h1>{props.title}</h1>
-        <div>{props.artName}</div>
+        <p>{props.artName}</p>
         <div>{props.author}</div>
         <button onClick={props.clicked}>show more</button>
     </article>

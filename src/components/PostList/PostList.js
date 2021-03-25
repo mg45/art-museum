@@ -8,13 +8,13 @@ class PostList extends Component {
     state = {
         posts: [],
         selectedPostId: null,
-        category: 'Paintings&Prints&Drawings'
+        category: 'Mosaics&Text&Prints&Paintings&Drawings'
         
     }
 
     //classification= Paintings
     componentDidMount () {
-        axios.get(`https://api.harvardartmuseums.org/object?classification=${this.state.category}&apikey=1da9b44f-392a-4d5f-8782-ff00202ed72a&page=1&size=15`)
+        axios.get(`https://api.harvardartmuseums.org/object?classification=${this.state.category}&apikey=1da9b44f-392a-4d5f-8782-ff00202ed72a&page=1&size=300`)
         .then(response => {
             console.log(response)
             this.setState({posts: response.data.records});
@@ -32,7 +32,7 @@ class PostList extends Component {
         axios.get(`https://api.harvardartmuseums.org/object?classification=${event.target.value}&apikey=1da9b44f-392a-4d5f-8782-ff00202ed72a&page=1&size=15`)
         .then(response => {
             console.log(response)
-            this.setState({posts: response.data.records, category: event.target.value} );
+            this.setState({posts: response.data.records});
         })
     }
 
@@ -45,10 +45,10 @@ class PostList extends Component {
                 {post.primaryimageurl!= null && post.imagecount !== 0 && post.title !== 0 ? 
                 <Link to={'/' + post.id} key={post.id}>
                     <Post 
-                                                        url={post.primaryimageurl}
-                                                        author={post.title}
-                                                        clicked={() => this.postSelectedHandler(post.id)}
-                                                    />
+                        url={post.primaryimageurl}
+                        author={post.title}
+                        clicked={() => this.postSelectedHandler(post.id)}
+                    />
                         
                 </Link>
                 : null}
@@ -66,9 +66,9 @@ class PostList extends Component {
                     </div>
 
                     <select value={this.state.value} onChange={this.postCategoryHandler} className="art-options" >
-                        <option value="showall">showall</option>
-                        <option value="Paintings">Paintings</option>
+                        <option value="Mosaics&Paintings&Prints&Drawings">Show all</option>
                         <option value="Prints">Prints</option>
+                        <option value="Paintings">Paintings</option>
                         <option value="Drawings">Drawings</option>
                     </select>
 
