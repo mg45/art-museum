@@ -1,6 +1,73 @@
+@import url("https://fonts.googleapis.com/css2?family=Aleo:wght@300;400;700&display=swap");
+* {
+  font-family: Aleo;
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+header {
+  display: flex;
+  position: fixed;
+  top: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  height: 50px;
+}
+
+header nav {
+  display: none;
+}
+
+.art-search {
+  margin-right: 25px;
+}
+
+.art-search input[type="text"] {
+  all: unset;
+  width: 100px;
+  height: 50px;
+  border: 2px solid black;
+  text-align: left;
+  padding-left: 10px;
+  transition: 0.2s;
+}
+
+.art-search input[type="text"]:focus {
+  width: 200px;
+  margin-left: -100px;
+  transition: 0.2s;
+}
+
+.art-search button[type="submit"] {
+  all: unset;
+  cursor: pointer;
+  padding: 0;
+  height: 50px;
+  width: 50px;
+  border: 2px solid black;
+  background: black;
+  color: white;
+  margin: 0;
+}
+
+.art-options {
+  border: 2px solid black;
+  background: black;
+  color: white;
+  height: 50px;
+  padding: 0 5px;
+  text-align: center;
+}
+
+.art-options:focus {
+  outline: none;
+}
+
 .post-list-container {
   height: 100vh;
   display: flex;
   align-items: center;
-  flex-wrap: nowrap;
+  width: 100%;
+  overflow-y: hidden;
 }

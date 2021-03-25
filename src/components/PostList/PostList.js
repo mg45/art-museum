@@ -77,10 +77,10 @@ class PostList extends Component {
 
                     <div className="art-search">
                         <form onSubmit={this.onFormSubmit}>
-                            <input type="text" placeholder="search..." onChange={(event) => this.setState({ entry: event.target.value })}
+                            <input type="text" placeholder="Search for Title" onChange={(event) => this.setState({ entry: event.target.value })}
                                 value={this.state.entry}
                             />
-                            <button type="submit">Search</button>
+                            <button type="submit">➝</button>
                         </form>
                     </div>
 
