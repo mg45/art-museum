@@ -8,8 +8,8 @@ class PostList extends Component {
     state = {
         posts: [],
         selectedPostId: null,
-        category: 'Mosaics&Text&Prints&Paintings&Drawings'
-        
+        category: 'Mosaics&Text&Prints&Paintings&Drawings',
+        entry: ''
     }
 
     //classification= Paintings
@@ -40,6 +40,10 @@ class PostList extends Component {
         console.log(event.target.value);
     }
 
+    onFormSubmit(event) {
+        event.preventDefault()
+    }
+
     render() {
         const posts = this.state.posts.map(post => {
             //console.log(post);
@@ -65,8 +69,12 @@ class PostList extends Component {
                 <header className="header-container">
 
                     <div className="art-search">
-                        <input type="text" placeholder="search..." onChange={this.onInputChange}/>
-                        <button type="submit">Search</button>
+                        <form onSubmit={this.onFormSubmit}>
+                            <input type="text" placeholder="search..." onChange={(event) => this.setState({ entry: event.target.value })}
+                                value={this.state.entry}
+                            />
+                            <button type="submit">Search</button>
+                        </form>
                     </div>
 
                     <select value={this.state.value} onChange={this.postCategoryHandler} className="art-options" >
