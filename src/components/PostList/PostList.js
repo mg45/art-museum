@@ -42,9 +42,10 @@ class PostList extends Component {
             //console.log(post);
             //return [post.classification, post.id]
             return (
-               <>
-                {post.primaryimageurl !==null ? <Link to={'/' + post.id} key={post.id}><Post url={post.primaryimageurl} clicked={() => this.postSelectedHandler(post.id)}/></Link> : null }    
-                </>
+                <Link to={'/' + post.id} key={post.id}>
+                    {post.primaryimageurl !== null ? <Post url={post.primaryimageurl} clicked={() => this.postSelectedHandler(post.id)} />
+                        : null}
+                </Link>
             );
         })
 
