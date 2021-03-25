@@ -43,6 +43,12 @@ class PostList extends Component {
     onFormSubmit = (event) => {
         event.preventDefault()
         console.log(this.state.entry);
+        https://api.harvardartmuseums.org/object?title=${this.state.entry}&apikey=1da9b44f-392a-4d5f-8782-ff00202ed72a&page=1&size=15
+        axios.get(`https://api.harvardartmuseums.org/object?title=${this.state.entry}&apikey=1da9b44f-392a-4d5f-8782-ff00202ed72a&page=1&size=20`)
+        .then(response => {
+            console.log(response)
+            this.setState({posts: response.data.records});
+        })
     }
 
     render() {
