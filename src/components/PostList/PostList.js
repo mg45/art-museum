@@ -14,7 +14,7 @@ class PostList extends Component {
 
     //classification= Paintings
     componentDidMount () {
-        axios.get(`https://api.harvardartmuseums.org/object?classification=${this.state.category}&apikey=1da9b44f-392a-4d5f-8782-ff00202ed72a&page=3&size=10`)
+        axios.get(`https://api.harvardartmuseums.org/object?classification=${this.state.category}&apikey=1da9b44f-392a-4d5f-8782-ff00202ed72a&page=1&size=15`)
         .then(response => {
             console.log(response)
             this.setState({posts: response.data.records});
@@ -29,10 +29,9 @@ class PostList extends Component {
     
     postCategoryHandler = (event) => {
         //console.log(event.target.value)
-        axios.get(`https://api.harvardartmuseums.org/object?classification=${event.target.value}&apikey=1da9b44f-392a-4d5f-8782-ff00202ed72a&page=3&size=10`)
+        axios.get(`https://api.harvardartmuseums.org/object?classification=${event.target.value}&apikey=1da9b44f-392a-4d5f-8782-ff00202ed72a&page=1&size=15`)
         .then(response => {
             console.log(response)
-
             this.setState({posts: response.data.records, category: event.target.value} );
         })
     }
@@ -43,7 +42,11 @@ class PostList extends Component {
             //return [post.classification, post.id]
             return (
                 <Link to={'/' + post.id} key={post.id}>
-                    {post.primaryimageurl !== null ? <Post url={post.primaryimageurl} clicked={() => this.postSelectedHandler(post.id)} />
+                    {post.primaryimageurl !== null && post.title !== 0  ? <Post 
+                                                        url={post.primaryimageurl}
+                                                        author={post.title}
+                                                        clicked={() => this.postSelectedHandler(post.id)}
+                                                    />
                         : null}
                 </Link>
             );
@@ -61,8 +64,8 @@ class PostList extends Component {
                     <select value={this.state.value} onChange={this.postCategoryHandler} className="art-options" >
                         <option value="showall">showall</option>
                         <option value="Paintings">Paintings</option>
-                        <option value="Jewelry">Jewelry</option>
-                        <option value="Sculpture">Sculpture</option>
+                        <option value="Prints">Prints</option>
+                        <option value="Drawings">Drawings</option>
                     </select>
 
                     <nav>
